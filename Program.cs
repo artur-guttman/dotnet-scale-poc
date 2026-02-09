@@ -54,7 +54,7 @@ app.MapGet("/whoami", () =>
     });
 });
 
-//// 🔄 Apelează rapid pentru a vedea diferite pod-uri răspunzând
+//// Apelează rapid pentru a vedea diferite pod-uri răspunzând
 //app.MapGet("/poll", async () =>
 //{
 //    var responses = new List<object>();
@@ -131,7 +131,7 @@ app.MapGet("/health", () => Results.Ok("Healthy"));
 
 app.Run();
 
-// Classes
+
 public record PodInfo(string PodName);
 
 public class CounterState
@@ -152,12 +152,12 @@ public class CounterService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        Console.WriteLine($"[{_podName}] 🚀 Counter started!");
+        Console.WriteLine($"[{_podName}] Counter started!");
 
         while (!stoppingToken.IsCancellationRequested)
         {
             _state.Count++;
-            Console.WriteLine($"[{_podName}] 🔢 Count: {_state.Count}");
+            Console.WriteLine($"[{_podName}] Count: {_state.Count}");
             await Task.Delay(1000, stoppingToken);
         }
     }
