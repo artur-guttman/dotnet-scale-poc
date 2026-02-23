@@ -156,7 +156,7 @@ public class CounterService : BackgroundService
 
         while (!stoppingToken.IsCancellationRequested)
         {
-            _state.Count += 2;
+            _state.Count += 3;
             Console.WriteLine($"[{_podName}] Count: {_state.Count}");
             await Task.Delay(1000, stoppingToken);
         }
